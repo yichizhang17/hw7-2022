@@ -15,18 +15,28 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener("click", function() {
 	console.log("Play Video");
 	video.play();
-	document.getElementById("volume").innerHTML = video.volume;
+	document.getElementById("volume").innerHTML = slider.value + '%';
 
 });
 
-slider.addEventListener("click",function(){
+slider.addEventListener("mousedown",function(){
 	video.volume = slider.value / 100;
-	document.getElementById("volume").innerHTML = video.volume * 100 + '%';
+	document.getElementById("volume").innerHTML = slider.value + '%';
+	console.log("The current value is", video.volume);
+	
+	
+
+});
+
+slider.addEventListener("mouseup",function(){
+	video.volume = slider.value / 100;
+	document.getElementById("volume").innerHTML = slider.value + '%';
 	console.log("The current value is", video.volume);
 	console.log(document.getElementById("volume"));
 	
 
 });
+
 
 
 document.querySelector("#pause").addEventListener("click", function() {
